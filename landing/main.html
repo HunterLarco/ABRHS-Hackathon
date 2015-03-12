@@ -212,6 +212,14 @@ body{
        -o-transition:all 250ms;
           transition:all 250ms;
 }
+.rsvp.noanim,
+.rsvp.noanim::after{
+  -webkit-transition:none;
+     -moz-transition:none;
+     -mos-transition:none;
+       -o-transition:none;
+          transition:none;
+}
 .rsvp::after{
   content:'SEE YOU SOON!';
   
@@ -243,7 +251,7 @@ body{
   color:transparent;
   background:rgb(56,153,179);
   
-  cursor:not-allowed;
+  cursor:default;
 }
 .rsvp.close::after{
   opacity:1;
@@ -274,6 +282,9 @@ body{
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
 
+<script src='/resources/scripts/cookies.js'></script>
+<script src='/resources/scripts/Post.js'></script>
+
 </head>
 <body>
 
@@ -283,7 +294,7 @@ body{
 <div class='header'>
   <div class='text'>
     <h1>AB</h1>
-    <h2>Programming learnathon and hackathon</h2>
+    <h2>learnathon and hackathon</h2>
   </div>
   <div class='arrow'></div>
 </div>
@@ -325,8 +336,8 @@ body{
 
 <div class='banner'>
   <h1>ARE YOU COMING?</h1>
-  <p>In order for us to make HackAB the best that it can be we need to know how many people to expect. So please RSVP on facebook and tell all of your friends about HackAB.</p>
-  <a class='rsvp' target='blank' href='#'>RSVP to HackAB</a>
+  <p>In order for us to make HackAB the best that it can be we need to know how many people to expect. So please RSVP and tell all of your friends about HackAB.</p>
+  <div class='rsvp'>RSVP to HackAB</div>
 </div>
 
 
@@ -357,7 +368,21 @@ body{
   }
   
   function BindRSVP(){
+    var rsvp = document.querySelector('.rsvp'),
+        undefined,
+        sent = Cookies.get('rsvp') != undefined;
     
+    if(sent) rsvp.setAttribute('class', 'rsvp close noanim');
+    else rsvp.addEventListener('click', SendRSVP);
+    
+    function SendRSVP(){
+      if(sent) return;
+      
+      rsvp.setAttribute('class', 'rsvp close');
+      
+      Post('/rsvp');
+      Cookies.set('rsvp', 'true', {expires:60*60*24*60});
+    }
   }
   
 })();

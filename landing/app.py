@@ -10,6 +10,17 @@ class MainHandler(webapp2.RequestHandler):
     self.response.out.write(template.render(path, template_values))
 
 
+class RSVPHandler(webapp2.RequestHandler):
+  def getShard(self):
+    from lib import shards
+    return shards.Integer.getOrCreate('rsvp')
+  def post(self):
+    self.getShard().run('add', 1)
+  def get(self):
+    self.response.out.write(self.getShard().getValue())
+
+
 app = webapp2.WSGIApplication([
+                ('/rsvp/?', RSVPHandler),
                 ('/.*', MainHandler)
               ], debug=True)
