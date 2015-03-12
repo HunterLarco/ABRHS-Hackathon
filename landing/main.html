@@ -8,23 +8,282 @@ body{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-	font-weight:100;
+  
 	-webkit-font-smoothing:antialiased;
+  
+  font-family:arial;
+}
+
+.header{
+  height:100vh;
+  
+  background:#1b1f2b;
+}
+.header:before{
+  content:'';
+  display:block;
+  
+  height:100%;
+  width:100%;
+  
+  position:absolute;
+  
+  top:0px;
+  left:0px;
+  
+  background:url(/images/code.png) no-repeat;
+  background-size:100% auto;
+  
+  opacity:.2;
+}
+.header .text{
+  position:absolute;
+  
+  top:50%;
+  left:50%;
+  width:80%;
+  
+  margin-top:-30px;
+  
+  font-size:80px;
+  color:rgb(255,255,255);
+  font-family:'Open Sans',sans-serif;
+  text-align:center;
+  
+  -webkit-transform:translate(-50%, -50%);
+     -moz-transform:translate(-50%, -50%);
+     -mos-transform:translate(-50%, -50%);
+       -o-transform:translate(-50%, -50%);
+          transform:translate(-50%, -50%);
+}
+.header .text h1{
+  font-weight:700;
+  line-height: 90px;
+  
+  margin:0px;
+  padding:0px;
+  
+  text-transform:uppercase;
+}
+.header .text h2{
+  font-weight:400;
+  font-size:40px;
+  
+  margin:0px;
+  padding:0px;
+}
+
+.header .nav{
+  position:absolute;
+  
+  bottom:0px;
+  left:0px;
+  right:0px;
+  
+  background:rgb(2,136,209);
+  
+  line-height:60px;
+  font-size:16px;
+  color:rgb(255,255,255);
+  
+  text-align:center;
+  text-transform:uppercase;
+}
+.header .nav .item{
+  display:inline-block;
+  position:relative;
+  
+  padding:0px 26px;
+  
+  cursor:pointer;
+  
+  z-index:0;
+}
+.header .nav .item::before{
+  content:'';
+  display:block;
+  
+  width:100%;
+  height:0%;
+  
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  
+  background:rgb(0,111,185);
+  
+  z-index:-1;
+  
+  -webkit-transition:height 250ms;
+     -moz-transition:height 250ms;
+     -mos-transition:height 250ms;
+       -o-transition:height 250ms;
+          transition:height 250ms;
+}
+.header .nav .item:hover::before{
+  height:100%;
+}
+
+.about{
+  color:rgb(51,51,51);
+  
+  line-height:0px;
+  font-size:0px;
+  
+  padding-bottom:20px;
+  
+  text-align:center;
+}
+.about .half{
+  width:50%;
+  max-width:560px;
+  
+  line-height:normal;
+  font-size:16px;
+  
+  vertical-align:top;
+  display:inline-block;
+}
+.about .banner{
+  background:rgb(77,171,244);
+  padding:30px 0px;
+}
+.about .content{
+  margin:30px auto;
+  
+  text-align:center;
+}
+
+.about .icon{
+  display:block;
+  
+  width:30px;
+  height:30px;
+  line-height:30px;
+  
+  font-size:14px;
+  font-weight:700;
+  
+  margin:0px auto;
+  
+  border:2px solid rgba(0,0,0,0.3);
+  color:rgba(0,0,0,0.5);
+  
+  -webkit-border-radius:50%;
+  -moz-border-radius:   50%;
+  border-radius:        50%;
+}
+.about h1{
+  font-weight:700;
+  font-size:16px;
+  
+  text-transform:uppercase;
+  
+  color:rgb(0,0,40);
+  
+  margin:0px;
+  padding-top:12px;
+}
+.about h2{
+  color:rgb(0,0,0);
+  
+  font-weight:700;
+  font-size:18px;
+  
+  padding:0px;
+  margin:20px 30px;
+}
+.about p{
+  padding:0px;
+  margin:0px 30px;
+}
+
+.tickets{
+  padding:40px;
+  
+  background:rgb(235,235,235);
+}
+.tickets h1{
+  font-size:30px;
+  color:rgb(28,32,40);
+  font-weight:700;
+  font-family:'Open Sans', sans-serif;
+  
+  text-transform:uppercase;
+  
+  text-align:center;
 }
 
 </style>
 <html>
 <head>
+
+<title>ABRHS Hackathon</title>
+
 <meta charset="utf-8" />
-<title></title>
-<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
 <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport"/>
+
 <link rel="stylesheet" href="/resources/css/resets.css"/>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,800,400' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
+  
+<div class='header'>
+  <div class='text'>
+    <h1>ABRHS Hackathon</h1>
+    <h2>Programming learnathon and hackathon</h2>
+  </div>
+  <div class='nav'>
+    <div class='item'>Home</div>
+    <div class='item'>What &middot; When &middot; Where</div>
+    <div class='item'>Free Tickets</div>
+  </div>
+</div>
 
+<div class='about'>
+  
+  <div class='banner'>
+    <div class='half'>
+      <div class='icon'>L</div>
+      <h1>learn</h1>
+    </div>
+    <div class='half'>
+      <div class='icon'>H</div>
+      <h1>hack</h1>
+    </div>
+  </div>
+  
+  
+  <div class='content'>
+    <div class='half'>
+      <h2>What is a Learnathon?</h2>
+      <p>A set of interactive classes and fun workshops designed to teach something new outside of a normal curriculum regarding programming and technology.</p>
+      <h2>What if I've never coded before?</h2>
+      <p>If you have never coded before, don’t worry! Students will teach and mentor you along the way. At the start of the event, there will be sessions to help you install the right development tools and environments to start coding.</p>
+      <i><h2>When and where is the Learnathon?</h2></i>
+      <p>We don't know yet. We're working actively with the administration and senior class officers to put a date on the calendar. We'll make sure that everyone knows when we do!</p>
+    </div>
+    <div class='half'>
+      <h2>What is a Hackathon?</h2>
+      <p>A hackathon is an event where people collaborate to create cool apps and software projects!</p>
+      <h2>Can we work in teams?</h2>
+      <p>Yes! In fact we encourage it. A lot of programming requires teamwork and communication skills. At the end of the event you will be able to see what your fellow students have created and we will select three teams to demonstrate their creations infront of everyone.</p>
+      <i><h2>When and where is the Hackathon?</h2></i>
+      <p>We don't know yet. We're working actively with the administration and senior class officers to put a date on the calendar. We'll make sure that everyone knows when we do!</p>
+    </div>
+  </div>
+  
+</div>
 
-
+<div class='tickets'>
+  <h1><label>Reserve Tickets Now</label></h1>
+</div>
 
 
 <script type='text/javascript'>
